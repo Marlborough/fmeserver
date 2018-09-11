@@ -1,7 +1,7 @@
 #! <?xml version="1.0" encoding="UTF-8" ?>
 #! <WORKSPACE
 #    Command-line to run this workspace:
-#        C:\apps\FME18305\fme.exe C:\Users\WChen\AppData\Local\Temp\wb_publish_1536699018418_3444/runTestsuite_v3.fmw
+#        C:\apps\FME18305\fme.exe C:\Users\WChen\AppData\Local\Temp\wb_publish_1536699175699_3444/runTestsuite_v3.fmw
 #    
 #!   ATTR_TYPE_ENCODING="SDF"
 #!   BEGIN_PYTHON=""
@@ -26,7 +26,7 @@
 #!   HISTORY=""
 #!   IGNORE_READER_FAILURE="No"
 #!   LAST_SAVE_BUILD="FME(R) 2018.0.0.3 (20180430 - Build 18305 - WIN64)"
-#!   LAST_SAVE_DATE="2018-09-11T13:50:18"
+#!   LAST_SAVE_DATE="2018-09-11T13:52:55"
 #!   LOG_FILE=""
 #!   LOG_MAX_RECORDED_FEATURES="200"
 #!   MARKDOWN_DESCRIPTION=""
@@ -406,7 +406,7 @@
 #!   TARGET_NODE="3"
 #!   SOURCE_PORT_DESC="fo 0 CREATED"
 #!   TARGET_PORT_DESC="fi 0 "
-#!   ENABLED="false"
+#!   ENABLED="true"
 #!   EXECUTION_IDX="0"
 #!   HIDDEN="false"
 #!   EXTRA_POINTS=""
@@ -417,7 +417,7 @@
 #!   TARGET_NODE="7"
 #!   SOURCE_PORT_DESC="fo 0 CREATED"
 #!   TARGET_PORT_DESC="fi 0 "
-#!   ENABLED="false"
+#!   ENABLED="true"
 #!   EXECUTION_IDX="1"
 #!   HIDDEN="false"
 #!   EXTRA_POINTS=""
@@ -592,8 +592,8 @@ FACTORY_DEF $(Creator_CLASSIC) CreationFactory    FACTORY_NAME Creator_CLASSIC_C
 FACTORY_DEF * TeeFactory    FACTORY_NAME Creator_Cloner    INPUT FEATURE_TYPE _____CREATED______        @Tcl2(Creator_CoordSysRemover)        @CoordSys()    NUMBER_OF_COPIES 1    COPY_NUMBER_ATTRIBUTE "_creation_instance"    OUTPUT FEATURE_TYPE Creator_CREATED        fme_feature_type Creator
 
 FACTORY_DEF * TeeFactory   FACTORY_NAME "Creator CREATED Splitter"   INPUT FEATURE_TYPE Creator_CREATED   OUTPUT FEATURE_TYPE Creator_CREATED_0_GJAgmIF9G6c=   OUTPUT FEATURE_TYPE Creator_CREATED_1_Exx7idfjvCA=   OUTPUT FEATURE_TYPE Creator_CREATED_2_goANeUpBIDA=
-FACTORY_DEF * TeeFactory   FACTORY_NAME "Creator_CREATED_0_GJAgmIF9G6c= Disabled Nuker -1 4"   INPUT FEATURE_TYPE Creator_CREATED_0_GJAgmIF9G6c=
-FACTORY_DEF * TeeFactory   FACTORY_NAME "Creator_CREATED_1_Exx7idfjvCA= Disabled Nuker -1 14"   INPUT FEATURE_TYPE Creator_CREATED_1_Exx7idfjvCA=
+FACTORY_DEF * BranchingFactory   FACTORY_NAME "Creator_CREATED_0_GJAgmIF9G6c= Brancher -1 4"   INPUT FEATURE_TYPE Creator_CREATED_0_GJAgmIF9G6c=   TARGET_FACTORY "$(WB_CURRENT_CONTEXT)_CREATOR_BRANCH_TARGET"   MAXIMUM_COUNT None   OUTPUT PASSED FEATURE_TYPE *
+FACTORY_DEF * BranchingFactory   FACTORY_NAME "Creator_CREATED_1_Exx7idfjvCA= Brancher -1 14"   INPUT FEATURE_TYPE Creator_CREATED_1_Exx7idfjvCA=   TARGET_FACTORY "$(WB_CURRENT_CONTEXT)_CREATOR_BRANCH_TARGET"   MAXIMUM_COUNT None   OUTPUT PASSED FEATURE_TYPE *
 FACTORY_DEF * BranchingFactory   FACTORY_NAME "Creator_CREATED_2_goANeUpBIDA= Brancher -1 22"   INPUT FEATURE_TYPE Creator_CREATED_2_goANeUpBIDA=   TARGET_FACTORY "$(WB_CURRENT_CONTEXT)_CREATOR_BRANCH_TARGET"   MAXIMUM_COUNT None   OUTPUT PASSED FEATURE_TYPE *
 # -------------------------------------------------------------------------
 FACTORY_DEF * TeeFactory   FACTORY_NAME "$(WB_CURRENT_CONTEXT)_CREATOR_BRANCH_TARGET"   INPUT FEATURE_TYPE *  OUTPUT FEATURE_TYPE *
@@ -611,7 +611,7 @@ FACTORY_DEF * TeeFactory    FACTORY_NAME SystemCaller_6    INPUT  FEATURE_TYPE S
 
 # -------------------------------------------------------------------------
 
-FACTORY_DEF * TeeFactory    FACTORY_NAME SystemCaller_4_Output_Logger    INPUT  FEATURE_TYPE SystemCaller_6_OUTPUT    OUTPUT FEATURE_TYPE SystemCaller_4_Output_LOGGED                  @Log(ENCODED, "SystemCaller_4_Output:<space>Feature is:","20","20","",INFO,LOG_ONLY,SystemCaller_4_Output_70148d3d_6d1f_4c5f_90ae_7874c7f4efac1)
+FACTORY_DEF * TeeFactory    FACTORY_NAME SystemCaller_4_Output_Logger    INPUT  FEATURE_TYPE SystemCaller_6_OUTPUT    OUTPUT FEATURE_TYPE SystemCaller_4_Output_LOGGED                  @Log(ENCODED, "SystemCaller_4_Output:<space>Feature is:","20","20","",INFO,LOG_ONLY,SystemCaller_4_Output_70148d3d_6d1f_4c5f_90ae_7874c7f4efac2)
 
 FACTORY_DEF * TeeFactory   FACTORY_NAME "SystemCaller_4_Output LOGGED Transformer Output Nuker"   INPUT FEATURE_TYPE SystemCaller_4_Output_LOGGED
 # -------------------------------------------------------------------------
